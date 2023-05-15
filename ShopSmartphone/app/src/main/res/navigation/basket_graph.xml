@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/basket_graph"
+    app:startDestination="@id/fragmentBasket2">
+
+    <fragment
+        android:id="@+id/fragmentBasket2"
+        android:name="com.example.shopsmartphone.presentation.basket.FragmentBasket"
+        android:label="FragmentBasket" >
+        <action
+            android:id="@+id/action_basketGraph_to_favoriteGraph"
+            app:destination="@+id/favorite_graph"/>
+        <action
+            android:id="@+id/action_basketGraph_to_searchGraph"
+            app:destination="@+id/search_graph"/>
+        <action
+            android:id="@+id/action_basketGraph_to_accountGraph"
+            app:destination="@+id/account_graph"/>
+    </fragment>
+</navigation>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_corner_radius">20dp</dimen>
+    <dimen name="margin_sides_editText">30dp</dimen>
+</resources>

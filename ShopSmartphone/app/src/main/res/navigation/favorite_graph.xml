@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favorite_graph"
+    app:startDestination="@id/fragmentFavorite2">
+
+    <fragment
+        android:id="@+id/fragmentFavorite2"
+        android:name="com.example.shopsmartphone.presentation.favorite.FragmentFavorite"
+        android:label="FragmentFavorite" >
+        <action
+            android:id="@+id/action_favoriteGraph_to_basketGraph"
+            app:destination="@+id/basket_graph"/>
+        <action
+            android:id="@+id/action_favoriteGraph_to_searchGraph"
+            app:destination="@+id/search_graph"/>
+        <action
+            android:id="@+id/action_favoriteGraph_to_accountGraph"
+            app:destination="@+id/account_graph"/>
+    </fragment>
+</navigation>

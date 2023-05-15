@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_graph"
+    app:startDestination="@id/fragmentSearch2">
+
+    <fragment
+        android:id="@+id/fragmentSearch2"
+        android:name="com.example.shopsmartphone.presentation.search.FragmentSearch"
+        android:label="FragmentSearch" >
+        <action
+            android:id="@+id/action_searchGraph_to_basketGraph"
+            app:destination="@+id/basket_graph"/>
+        <action
+            android:id="@+id/action_searchGraph_to_favoriteGraph"
+            app:destination="@+id/favorite_graph"/>
+        <action
+            android:id="@+id/action_searchGraph_to_accountGraph"
+            app:destination="@+id/account_graph"/>
+        <action
+            android:id="@+id/action_fragmentSearch2_to_fragmentAccessories"
+            app:destination="@id/fragmentAccessories" />
+        <action
+            android:id="@+id/action_fragmentSearch2_to_fragmentHuawei"
+            app:destination="@id/fragmentHuawei" />
+        <action
+            android:id="@+id/action_fragmentSearch2_to_fragmentXiaomi"
+            app:destination="@id/fragmentXiaomi" />
+        <action
+            android:id="@+id/action_fragmentSearch2_to_productChildFragment"
+            app:destination="@id/productChildFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHuawei"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.FragmentHuawei"
+        android:label="FragmentHuawei" >
+        <action
+            android:id="@+id/action_fragmentHuawei_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentApple"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.FragmentApple"
+        android:label="FragmentApple" >
+        <action
+            android:id="@+id/action_fragmentApple_to_productChildFragment"
+            app:destination="@id/productChildFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentAccessories"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.FragmentAccessories"
+        android:label="FragmentAccessories" >
+        <action
+            android:id="@+id/action_fragmentAccessories_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentXiaomi"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.FragmentXiaomi"
+        android:label="FragmentXiaomi" >
+        <action
+            android:id="@+id/action_fragmentXiaomi_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+    </fragment>
+    <fragment
+        android:id="@+id/productChildFragment"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.child.ProductChildFragment"
+        android:label="fragment_child_apple"
+        tools:layout="@layout/fragment_child_apple" >
+        <action
+            android:id="@+id/action_productChildFragment_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+        <action
+            android:id="@+id/action_productChildFragment_to_fragmentApple"
+            app:destination="@id/fragmentApple" />
+    </fragment>
+</navigation>

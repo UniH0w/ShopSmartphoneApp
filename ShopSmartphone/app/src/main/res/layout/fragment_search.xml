@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back">
+
+
+    <ImageButton
+        android:id="@+id/imageButtonGiveHuawei"
+        android:layout_width="147dp"
+        android:layout_height="174dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/ic_corner_image_button"
+        android:src="@drawable/ic_logo_huawei"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/imageButtonGiveSamsung"
+                android:layout_marginTop="10dp"
+                android:layout_width="147dp"
+                android:layout_height="174dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/ic_corner_image_button"
+                android:src="@drawable/ic_logo_samsung"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:layout_width="147dp"
+                android:layout_height="174dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_corner_image_button"
+                android:src="@drawable/ic_logo_xiaomi1"
+                app:layout_constraintEnd_toEndOf="@+id/imageButtonGiveHuawei"
+                app:layout_constraintStart_toStartOf="@+id/imageButtonGiveHuawei"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonGiveHuawei" />
+
+            <ImageButton
+                android:id="@+id/imageButtonGiveApple"
+                android:layout_width="147dp"
+                android:layout_height="174dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/ic_corner_image_button"
+                android:src="@drawable/ic_logo_apple"
+                app:layout_constraintEnd_toEndOf="@+id/imageButtonGiveSamsung"
+                app:layout_constraintStart_toStartOf="@+id/imageButtonGiveSamsung"
+                app:layout_constraintTop_toBottomOf="@+id/imageButtonGiveSamsung" />
+
+    <ImageButton
+        android:id="@+id/imageButtonGiveAccessories"
+        android:layout_width="147dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_corner_image_button"
+        android:src="@drawable/ic_logo_accessories"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonGiveApple" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
