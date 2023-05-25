@@ -27,4 +27,7 @@ open class BaseFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bottomNavigationViewManager?.setNavigationViewVisibility(showBottomNavigationView)
     }
+    protected infix fun <T> LiveData<T>.observe(block: (T) -> Unit) {
+        observe(this@BaseFragment.viewLifecycleOwner) { block.invoke(it) }
+    }
 }

@@ -6,10 +6,11 @@ import com.example.shopsmartphone.R
 
 class Validator(private val context: Context) {
     companion object {
-        const val USERNAME_LENGTH = 4
+        const val NAME_LENGTH = 1
         const val EMAIL_LENGTH = 8
         const val PASSWORD_LENGTH = 8
         const val EMAIL_TRUE = "@"
+        const val PHONE_LENGTH = 11
     }
     fun validateLogin(login: EditText): String? =
         when{
@@ -21,10 +22,10 @@ class Validator(private val context: Context) {
             else -> null
         }
 
-    fun validateUsername(username: EditText): String? =
+    fun validateFirstName(firstName: EditText): String? =
         when {
-            username.text.toString().isBlank() -> context.getString(R.string.error_empty)
-            username.length() <= USERNAME_LENGTH -> context.getString(R.string.error_username_more4)
+            firstName.text.toString().isBlank() -> context.getString(R.string.error_empty)
+            firstName.length() <= NAME_LENGTH -> context.getString(R.string.error_username_more4)
             else -> null
         }
 
@@ -41,6 +42,20 @@ class Validator(private val context: Context) {
             password.length() < 1 -> context.getString(R.string.error_empty)
             password.text.toString() != confirmPassword.text.toString() ->
                 context.getString(R.string.error_confirm)
+            else -> null
+        }
+
+
+    fun validateLastName(lastName: EditText): String?=
+        when{
+            lastName.text.toString().isBlank() -> context.getString(R.string.error_empty)
+            lastName.length() <= NAME_LENGTH -> context.getString(R.string.error_username_more4)
+            else -> null
+        }
+    fun validatePhone(phone: EditText): String? =
+        when {
+            phone.text.toString().isBlank() -> context.getString(R.string.error_empty)
+            phone.length() != PHONE_LENGTH -> context.getString(R.string.error_phone_more)
             else -> null
         }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/back">
@@ -16,23 +17,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/registerLogo"
-        android:layout_width="245dp"
-        android:layout_height="187dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_logo_register"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
     <com.google.android.material.textfield.TextInputLayout
-        android:layout_marginTop="20dp"
-        android:id="@+id/inputLayoutName"
+        android:layout_marginTop="40dp"
+        android:id="@+id/inputLayoutFirstName"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/name_hint"
+        android:layout_marginStart="@dimen/margin_sides_editText"
+        android:layout_marginEnd="@dimen/margin_sides_editText"
         app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="@dimen/box_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/box_corner_radius"
@@ -40,14 +33,12 @@
         app:boxCornerRadiusTopStart="@dimen/box_corner_radius"
         app:boxStrokeWidth="0dp"
         app:hintTextColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/registerLogo"
-        app:layout_constraintStart_toStartOf="@+id/registerLogo"
-        app:layout_constraintTop_toBottomOf="@+id/registerLogo"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp">
+        app:layout_constraintEnd_toEndOf="@+id/textView4"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextName"
+            android:id="@+id/editTextFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName" />
@@ -55,13 +46,13 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutEmail"
+        android:id="@+id/inputLayoutLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:boxBackgroundColor="@color/white"
         android:layout_marginTop="5dp"
         app:boxStrokeWidth="0dp"
-        android:hint="@string/email_hint"
+        android:hint="Фамилия"
         app:hintTextColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginStart="@dimen/margin_sides_editText"
@@ -70,9 +61,37 @@
         app:boxCornerRadiusTopEnd="@dimen/box_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/box_corner_radius"
         app:boxCornerRadiusTopStart="@dimen/box_corner_radius"
-        app:layout_constraintEnd_toEndOf="@+id/inputLayoutName"
-        app:layout_constraintStart_toStartOf="@+id/inputLayoutName"
-        app:layout_constraintTop_toBottomOf="@+id/inputLayoutName">
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutFirstName"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutFirstName"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutFirstName">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextLastName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email_hint"
+        app:hintTextColor="@color/black"
+        app:boxBackgroundColor="@color/white"
+        app:boxStrokeWidth="0dp"
+        android:layout_marginTop="5dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_marginStart="@dimen/margin_sides_editText"
+        android:layout_marginEnd="@dimen/margin_sides_editText"
+        app:boxCornerRadiusBottomEnd="@dimen/box_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/box_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/box_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/box_corner_radius"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutLastName"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutLastName"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutLastName">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editTextEmail"
@@ -83,14 +102,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutPassword"
+        android:id="@+id/inputLayoutPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/password_hint"
-        app:hintTextColor="@color/black"
         app:boxBackgroundColor="@color/white"
-        app:boxStrokeWidth="0dp"
         android:layout_marginTop="5dp"
+        app:boxStrokeWidth="0dp"
+        android:hint="@string/numberPhone"
+        app:hintTextColor="@color/black"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginStart="@dimen/margin_sides_editText"
         android:layout_marginEnd="@dimen/margin_sides_editText"
@@ -103,29 +122,57 @@
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutEmail">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextPassword"
+            android:id="@+id/editTextPhoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPhonetic"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputLayoutConfirmPassword"
+        android:id="@+id/inputLayoutPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxBackgroundColor="@color/white"
         android:layout_marginTop="5dp"
+        android:hint="@string/password_hint"
+        app:boxBackgroundColor="@color/white"
+        app:boxCornerRadiusBottomEnd="@dimen/box_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/box_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/box_corner_radius"
+        app:boxCornerRadiusTopStart="@dimen/box_corner_radius"
         app:boxStrokeWidth="0dp"
-        android:hint="@string/confirm_password_hint"
         app:hintTextColor="@color/black"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_marginStart="@dimen/margin_sides_editText"
         android:layout_marginEnd="@dimen/margin_sides_editText"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutPhoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutPhoneNumber"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutPhoneNumber">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_marginTop="5dp"
+        android:id="@+id/inputLayoutConfirmPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_sides_editText"
+        android:layout_marginEnd="@dimen/margin_sides_editText"
+        android:hint="@string/confirm_password_hint"
+        app:boxBackgroundColor="@color/white"
         app:boxCornerRadiusBottomEnd="@dimen/box_corner_radius"
-        app:boxCornerRadiusTopEnd="@dimen/box_corner_radius"
         app:boxCornerRadiusBottomStart="@dimen/box_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/box_corner_radius"
         app:boxCornerRadiusTopStart="@dimen/box_corner_radius"
+        app:boxStrokeWidth="0dp"
+        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutPassword"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutPassword"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutPassword">
@@ -134,13 +181,13 @@
             android:id="@+id/editTextConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:layout_marginTop="20dp"
         android:id="@+id/registerButton"
+        android:layout_marginTop="10dp"
         style="@style/button"
         android:layout_width="314dp"
         android:layout_height="59dp"

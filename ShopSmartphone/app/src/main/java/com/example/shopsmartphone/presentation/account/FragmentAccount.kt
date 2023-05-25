@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.data.preferencesManager.PreferencesStorage
 import com.example.shopsmartphone.R
 import com.example.shopsmartphone.presentation.base.BaseFragment
 import com.example.shopsmartphone.databinding.FragmentAccountBinding
@@ -19,6 +19,12 @@ class FragmentAccount: BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAccountBinding.inflate(inflater,container,false)
+
+        val preferencesStorage =PreferencesStorage(requireContext())
+        binding.textViewFirstName.text = preferencesStorage.readFirstNamePreference()
+        binding.textViewLastName.text = preferencesStorage.readLastNamePreference()
+        binding.textViewLogin.text = preferencesStorage.readEmailPreference()
+
         binding.imageButtonToPassword.setOnClickListener {
             findNavController()
                 .navigate(R.id.action_fragmentAccount2_to_fragmentChangePassword)
@@ -26,6 +32,14 @@ class FragmentAccount: BaseFragment() {
         binding.imageButtonToUser.setOnClickListener {
             findNavController()
                 .navigate(R.id.action_fragmentAccount2_to_fragmentChangeUser)
+        }
+        binding.exitButtonAccount.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_fragmentAccount2_to_fragmenLogin)
+                preferencesStorage.deleteLoginPreference()
+                preferencesStorage.deleteEmailPreference()
+                preferencesStorage.deleteFirsNamePreference()
+                preferencesStorage.deleteLastNamePreference()
         }
         return binding.root
     }

@@ -12,6 +12,7 @@
     <string name="error_email_more8">Введите больше 8 знаков</string>
     <string name="error_email_true">Введите правильную почту</string>
     <string name="error_confirm">Пароли не совпадают</string>
+    <string name="eror_password_new_password">Пароли совпадают</string>
     <string name="error_username_more4">Введи больше 4 символов</string>
     <string name="name_hint">Имя</string>
     <string name="family_hint">Фамилия</string>
@@ -19,4 +20,11 @@
     <string name="registr">Зарегистрироватся</string>
     <string name="сonfirm">Подтвердить</string>
     <string name="exit">Выйти</string>
+    <string name="login_bad_request">Проблемы при входе в аккаунт</string>
+    <string name="login_unauthorized">Некорректные данные входа</string>
+    <string name="request_error">Неизвестная ошибка</string>
+    <string name="numberPhone">Номер телефона</string>
+    <string name="error_phone_more">There must be 11 characters</string>
+    <string name="task_bad_request">Проблемы при получении задач</string>
+    <string name="missing_token_error">Отсутствуе токен</string>
 </resources>
