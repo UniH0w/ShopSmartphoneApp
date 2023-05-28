@@ -12,5 +12,13 @@ data class Product(
     @SerializedName("description")
     val description: String,
     @SerializedName("price")
-    val price: String
+    val price: String,
+    @SerializedName("image")
+    val image: String,
+    @SerializedName("cartid")
+    val cartId :String,
+    @SerializedName("favoriteid")
+    val favoriteId:String
+
+
 )

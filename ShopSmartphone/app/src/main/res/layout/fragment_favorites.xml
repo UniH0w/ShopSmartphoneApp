@@ -1,57 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/back">
+    tools:context=".presentation.favorite.FragmentFavorite"
+    android:backgroundTint="@color/back"
+    android:background="@color/back"
+    android:layout_centerHorizontal="true">
 
-    <TextView
-    android:id="@+id/textViewFavorite"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
-    android:fontFamily="@font/poppins_regular"
-    android:text="Избраное"
-    android:textColor="@color/purple"
-    android:textSize="26sp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageViewFavorite"
-        android:layout_width="wrap_content"
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Избраное"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProduct"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:src="@drawable/ic_logo_favorite"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFavorite"
-        app:layout_constraintStart_toStartOf="@+id/textViewFavorite"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFavorite" />
-
-    <TextView
-        android:id="@+id/textViewFavoriteNull"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Ваши закладки пусты"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewFavorite"
-        app:layout_constraintStart_toStartOf="@+id/imageViewFavorite"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFavorite" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buyButtonFavorite"
-        style="@style/button"
-        android:layout_marginTop="55dp"
-        android:layout_width="314dp"
-        android:layout_height="59dp"
-        android:backgroundTint="@color/purple"
-        android:text="Начать покупать"
-        app:cornerRadius="45dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFavoriteNull"
-        app:layout_constraintStart_toStartOf="@+id/textViewFavoriteNull"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFavoriteNull" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        tools:listitem="@layout/favorite_item" />
+</FrameLayout>

@@ -58,7 +58,7 @@ class FragmentLogin: BaseFragment() {
         val emailInputLayout = binding.inputLayoutEmailLogin
         val passwordInputLayout = binding.inputLayoutPasswordLogin
         val validate = Validator(context = requireContext())
-        val preferencesStorage = PreferencesStorage(context = requireContext())
+        val preferencesStorage = PreferencesStorage(requireContext())
         emailInputLayout.error = validate.validateLogin(email)
         passwordInputLayout.error = validate.validatePassword(password)
 

@@ -10,8 +10,8 @@ import com.example.shopsmartphone.databinding.ProductItemBinding
 class ProductChildAdapter : RecyclerView.Adapter<ProductChildViewHolder>() {
     val items = mutableListOf<Product>()
     var itemClick: (Int) -> Unit = {
-
     }
+    var onItemLongClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductChildViewHolder {
         return ProductChildViewHolder(
@@ -24,7 +24,7 @@ class ProductChildAdapter : RecyclerView.Adapter<ProductChildViewHolder>() {
     }
     //@RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ProductChildViewHolder, position: Int) {
-        holder.bind(items[position], itemClick)
+        holder.bind(items[position], itemClick, onItemLongClick)
     }
 
     override fun getItemCount() = items.size

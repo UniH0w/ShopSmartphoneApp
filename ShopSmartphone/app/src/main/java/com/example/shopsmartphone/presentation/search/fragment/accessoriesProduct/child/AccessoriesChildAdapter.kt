@@ -12,8 +12,8 @@ import com.example.shopsmartphone.presentation.search.fragment.accessoriesProduc
 class AccessoriesChildAdapter : RecyclerView.Adapter<AccessoriesChildViewHolder>() {
     val items = mutableListOf<Product>()
     var itemClick: (Int) -> Unit = {
-
     }
+    var onItemLongClick: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AccessoriesChildViewHolder {
         return AccessoriesChildViewHolder(
@@ -26,7 +26,7 @@ class AccessoriesChildAdapter : RecyclerView.Adapter<AccessoriesChildViewHolder>
     }
     //@RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: AccessoriesChildViewHolder, position: Int) {
-        holder.bind(items[position], itemClick)
+        holder.bind(items[position], itemClick,onItemLongClick)
     }
 
     override fun getItemCount() = items.size

@@ -42,7 +42,7 @@ class FragmentChangePassword : BaseFragment() {
 
         val password =binding.inputLayoutChangeNewPassword
         val validate = Validator(context = requireContext())
-        val preferencesStorage = PreferencesStorage(context = requireContext())
+        val preferencesStorage = PreferencesStorage(requireContext())
 
         password.error = validate.validatePassword(binding.editTextChangeNewPassword)
 

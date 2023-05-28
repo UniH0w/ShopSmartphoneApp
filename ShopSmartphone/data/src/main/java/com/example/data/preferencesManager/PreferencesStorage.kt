@@ -1,10 +1,9 @@
 package com.example.data.preferencesManager
 
 import android.content.Context
-import android.provider.ContactsContract.CommonDataKinds.Email
 
 
-class PreferencesStorage(private val context: Context ) {
+class PreferencesStorage(private val context: Context) {
     companion object {
         private const val PREFERENCE_TOKEN = "token"
         private const val KEY_TOKEN = "TOKEN"
@@ -14,6 +13,8 @@ class PreferencesStorage(private val context: Context ) {
         private const val LASTNAME ="LASTNAME"
         private const val EMAIL ="EMAIL"
         private const val PREFERENCE_EMAIL = "EMAIL"
+        private const val PREFERENCE_ID = "1"
+        private const val ID ="1"
 
 
     }
@@ -28,6 +29,18 @@ class PreferencesStorage(private val context: Context ) {
         val preference = context.getSharedPreferences(PREFERENCE_TOKEN, Context.MODE_PRIVATE)
         return preference.getString(KEY_TOKEN, null) ?: ""
     }
+    fun writeIdPreference(id: String) {
+
+        val preference = context.getSharedPreferences(PREFERENCE_ID, Context.MODE_PRIVATE)
+        preference.edit().putString(ID, id).apply()
+    }
+    fun readIdPreference(): String {
+
+        val preference = context.getSharedPreferences(PREFERENCE_ID, Context.MODE_PRIVATE)
+        return preference.getString(ID, null) ?: ""
+    }
+
+
 
     fun deleteLoginPreference() {
         val preference = context.getSharedPreferences(PREFERENCE_TOKEN, Context.MODE_PRIVATE)

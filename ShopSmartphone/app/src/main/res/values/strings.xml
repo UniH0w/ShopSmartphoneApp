@@ -13,7 +13,7 @@
     <string name="error_email_true">Введите правильную почту</string>
     <string name="error_confirm">Пароли не совпадают</string>
     <string name="eror_password_new_password">Пароли совпадают</string>
-    <string name="error_username_more4">Введи больше 4 символов</string>
+    <string name="error_username_more4">Введите больше 4 символов</string>
     <string name="name_hint">Имя</string>
     <string name="family_hint">Фамилия</string>
     <string name="confirm_password_hint">Подтверждения пароля</string>
@@ -24,7 +24,9 @@
     <string name="login_unauthorized">Некорректные данные входа</string>
     <string name="request_error">Неизвестная ошибка</string>
     <string name="numberPhone">Номер телефона</string>
-    <string name="error_phone_more">There must be 11 characters</string>
-    <string name="task_bad_request">Проблемы при получении задач</string>
-    <string name="missing_token_error">Отсутствуе токен</string>
+    <string name="error_phone_more">Введите больше 11 символов</string>
+    <string name="task_bad_request">Проблемы при получении продуктов</string>
+    <string name="missing_token_error">Отсутствует токен</string>
+    <string name="task_ok_delete_request">Успешно удалено</string>
+    <string name="no_found_id_request">Продукт с указанным id не найдена</string>
 </resources>

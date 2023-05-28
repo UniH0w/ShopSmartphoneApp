@@ -22,9 +22,6 @@
             android:id="@+id/action_fragmentSearch2_to_fragmentAccessories"
             app:destination="@id/fragmentAccessories" />
         <action
-            android:id="@+id/action_fragmentSearch2_to_fragmentXiaomi"
-            app:destination="@id/fragmentXiaomi" />
-        <action
             android:id="@+id/action_fragmentSearch2_to_productChildFragment"
             app:destination="@id/productChildFragment" />
         <action
@@ -33,10 +30,16 @@
         <action
             android:id="@+id/action_fragmentSearch2_to_huaweiChildFragment"
             app:destination="@id/huaweiChildFragment" />
+        <action
+            android:id="@+id/action_fragmentSearch2_to_samsungChildFragment"
+            app:destination="@id/samsungChildFragment" />
+        <action
+            android:id="@+id/action_fragmentSearch2_to_xiaomiChildFragment"
+            app:destination="@id/xiaomiChildFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragmentHuawei"
-        android:name="com.example.shopsmartphone.presentation.search.fragment.huaweiProduct.FragmentHuawei"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.huaweiProduct.huaweiCardView.FragmentHuawei"
         android:label="FragmentHuawei" >
         <action
             android:id="@+id/action_fragmentHuawei_to_huaweiChildFragment"
@@ -47,9 +50,15 @@
         android:name="com.example.shopsmartphone.presentation.search.fragment.appleProduct.applecardview.FragmentApple"
         android:label="FragmentApple" >
         <action
+            android:id="@+id/action_fragmentApple_to_Basket"
+            app:destination="@+id/basket_graph"/>
+        <action
             android:id="@+id/action_fragmentApple_to_productChildFragment"
             app:destination="@id/productChildFragment" />
-
+        <argument
+            android:name="id"
+            app:argType="string"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/fragmentAccessories"
@@ -64,11 +73,11 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentXiaomi"
-        android:name="com.example.shopsmartphone.presentation.search.fragment.xiaomiProduct.FragmentXiaomi"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.xiaomiProduct.xiaomiCardView.FragmentXiaomi"
         android:label="FragmentXiaomi" >
         <action
-            android:id="@+id/action_fragmentXiaomi_to_fragmentSearch2"
-            app:destination="@id/fragmentSearch2" />
+            android:id="@+id/action_fragmentXiaomi_to_xiaomiChildFragment"
+            app:destination="@id/xiaomiChildFragment" />
     </fragment>
     <fragment
         android:id="@+id/productChildFragment"
@@ -112,5 +121,37 @@
         <action
             android:id="@+id/action_huaweiChildFragment_to_fragmentHuawei"
             app:destination="@id/fragmentHuawei" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSamsung"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.samsungProduct.samsungCardView.FragmentSamsung"
+        android:label="FragmentSamsung" >
+        <action
+            android:id="@+id/action_fragmentSamsung_to_samsungChildFragment"
+            app:destination="@id/samsungChildFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/samsungChildFragment"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.samsungProduct.child.SamsungChildFragment"
+        android:label="samsung_child_fragment"
+        tools:layout="@layout/samsung_child_fragment" >
+        <action
+            android:id="@+id/action_samsungChildFragment_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+        <action
+            android:id="@+id/action_samsungChildFragment_to_fragmentSamsung"
+            app:destination="@id/fragmentSamsung" />
+    </fragment>
+    <fragment
+        android:id="@+id/xiaomiChildFragment"
+        android:name="com.example.shopsmartphone.presentation.search.fragment.xiaomiProduct.child.XiaomiChildFragment"
+        android:label="xiaomi_child_fragment"
+        tools:layout="@layout/xiaomi_child_fragment" >
+        <action
+            android:id="@+id/action_xiaomiChildFragment_to_fragmentSearch2"
+            app:destination="@id/fragmentSearch2" />
+        <action
+            android:id="@+id/action_xiaomiChildFragment_to_fragmentXiaomi"
+            app:destination="@id/fragmentXiaomi" />
     </fragment>
 </navigation>

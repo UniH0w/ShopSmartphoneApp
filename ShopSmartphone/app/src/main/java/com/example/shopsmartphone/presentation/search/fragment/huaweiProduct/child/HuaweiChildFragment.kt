@@ -8,9 +8,9 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.data.preferencesManager.PreferencesStorage
 import com.example.data.storage.ApiService
+import com.example.domain.models.product.FavoriteResponse
 import com.example.domain.models.product.Product
 import com.example.shopsmartphone.R
-import com.example.shopsmartphone.databinding.FragmentChildAppleBinding
 import com.example.shopsmartphone.databinding.HuaweiChildFragmentBinding
 import com.example.shopsmartphone.presentation.base.BaseFragment
 import retrofit2.Call
@@ -31,7 +31,7 @@ class HuaweiChildFragment : BaseFragment() {
 
         adapter = HuaweiChildAdapter()
         binding = HuaweiChildFragmentBinding.inflate(inflater, container, false)
-        val preferencesStorage = PreferencesStorage (requireContext())
+        val preferencesStorage = PreferencesStorage(requireContext())
         binding.recyclerViewProduct.adapter =adapter
         getProduct(preferencesStorage)
         binding.imageButton2.setOnClickListener {
@@ -46,7 +46,44 @@ class HuaweiChildFragment : BaseFragment() {
                 .navigate(R.id.action_huaweiChildFragment_to_fragmentHuawei, bundle)
         }
 
+        adapter.onItemLongClick ={ id->
+            ApiService.retrofit.favoriteCreate(idFavorite = id.toString(), FavoriteResponse(
+                id = id.toString()),
+                "Bearer ${preferencesStorage.readLoginPreference()}").enqueue(
+                object : Callback<Product> {
+                    override fun onResponse(call: Call<Product>, response: Response<Product>) {
 
+                        when (response.code()) {
+                            HttpURLConnection.HTTP_OK -> {
+                            }
+
+                            HttpURLConnection.HTTP_BAD_REQUEST -> Toast.makeText(
+                                activity,
+                                getString(R.string.login_bad_request),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            HttpURLConnection.HTTP_UNAUTHORIZED -> Toast.makeText(
+                                activity,
+                                getString(R.string.login_unauthorized),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            else -> Toast.makeText(
+                                activity,
+                                getString(R.string.request_error),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Product>, t: Throwable) {
+
+                        Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            )
+        }
         return binding.root
     }
     private fun getProduct(preferencesStorage: PreferencesStorage) {

@@ -1,58 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/back">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".presentation.basket.FragmentBasket"
+android:backgroundTint="@color/back"
+android:background="@color/back"
+    android:layout_centerHorizontal="true">
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Корзина"
-        android:textColor="@color/purple"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageViewFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/textViewBasket"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_regular"
+            android:text="Корзина"
+            android:textAlignment="center"
+            android:textColor="@color/purple"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProduct"
+        android:layout_width="match_parent"
+        android:layout_height="584dp"
         android:layout_marginTop="60dp"
-        android:src="@drawable/ic_logo_basket"
-        app:layout_constraintEnd_toEndOf="@+id/textView9"
-        app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        tools:listitem="@layout/basket_item" />
 
-    <TextView
-        android:id="@+id/textViewFavoriteNull"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:fontFamily="@font/poppins_regular"
-        android:text="Ваша корзина пуста"
-        android:textColor="@color/black"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="@+id/imageViewFavorite"
-        app:layout_constraintStart_toStartOf="@+id/imageViewFavorite"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewFavorite" />
+        android:layout_marginTop="650dp">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/buyButtonBasket"
-        style="@style/button"
-        android:layout_marginTop="55dp"
-        android:layout_width="314dp"
-        android:layout_height="59dp"
-        android:backgroundTint="@color/purple"
-        android:text="Начать покупать"
-        app:cornerRadius="45dp"
-        app:layout_constraintEnd_toEndOf="@+id/textViewFavoriteNull"
-        app:layout_constraintStart_toStartOf="@+id/textViewFavoriteNull"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFavoriteNull" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/orderTask"
+            style="@style/button"
+            android:layout_width="314dp"
+            android:layout_height="59dp"
+            android:paddingVertical="10dp"
+            android:text="Оформить заказ"
+            app:cornerRadius="45dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -2,8 +2,10 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
-    android:backgroundTint="@color/white">
+    android:backgroundTint="@color/white"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,12 +13,12 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:id="@+id/imageViewProduct"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
             android:contentDescription="product image"
-            android:src="@drawable/ic_galaxy_watch"
-            android:scaleType="centerInside"/>
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_galaxy_watch" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,6 +30,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name"
+            android:textColor="@color/black"
+            android:fontFamily="@font/poppins_regular"
+            android:textSize="16sp"/>
+        <TextView
+            android:id="@+id/texViewModel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Model"
             android:textColor="@color/black"
             android:fontFamily="@font/poppins_regular"
             android:textSize="16sp"/>
@@ -54,6 +64,7 @@
             android:layout_marginHorizontal="10dp"/>
 
         <ImageButton
+            android:id="@+id/imageButtonFavorite"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginHorizontal="10dp"

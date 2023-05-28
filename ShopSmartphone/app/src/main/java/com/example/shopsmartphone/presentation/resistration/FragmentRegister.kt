@@ -42,7 +42,7 @@ class FragmentRegister: BaseFragment() {
             val phoneNumberInputLayout = binding.inputLayoutPhoneNumber
             val confirmPasswordInputLayout = binding.inputLayoutConfirmPassword
             val validate = Validator(context = requireContext())
-            val preferencesStorage = PreferencesStorage(context = requireContext())
+            val preferencesStorage = PreferencesStorage(requireContext())
 
             firsNameInputLayout.error = validate.validateFirstName(binding.editTextFirstName)
             lastNameInputLayout.error = validate.validateLastName(binding.editTextLastName)

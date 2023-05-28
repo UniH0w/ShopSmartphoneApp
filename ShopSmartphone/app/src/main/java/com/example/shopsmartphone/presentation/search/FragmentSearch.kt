@@ -31,6 +31,14 @@ class FragmentSearch: BaseFragment() {
             findNavController()
                 .navigate(R.id.action_fragmentSearch2_to_huaweiChildFragment)
         }
+        binding.imageButtonGiveSamsung.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_fragmentSearch2_to_samsungChildFragment)
+        }
+        binding.imageButtonGiveXiaomi.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_fragmentSearch2_to_xiaomiChildFragment)
+        }
         return binding.root
     }
 }

@@ -5,11 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.example.data.preferencesManager.PreferencesStorage
 import com.example.data.storage.ApiService
+import com.example.domain.models.product.BasketResponse
 import com.example.domain.models.product.Product
 import com.example.shopsmartphone.R
 import com.example.shopsmartphone.presentation.base.BaseFragment
@@ -39,8 +38,52 @@ class FragmentAccessories : BaseFragment() {
         getTasks(preferencesStorage)
         adapter = FragmentAccessoriesAdapter()
         binding.recyclerViewCardView.adapter = adapter
+        adapter.itemClick = {
+            CreateBasket()
+        }
 
      return binding.root
+    }
+    private fun CreateBasket(){
+        val id = arguments?.getString("id")
+        val preferencesStorage =PreferencesStorage(requireContext())
+        val email = preferencesStorage.readEmailPreference()
+        ApiService.retrofit.basketCreate(idProduct = id.toString(), BasketResponse(
+            id = id.toString()),
+            "Bearer ${preferencesStorage.readLoginPreference()}").enqueue(
+            object : Callback<Product> {
+                override fun onResponse(call: Call<Product>, response: Response<Product>) {
+
+                    when (response.code()) {
+                        HttpURLConnection.HTTP_OK -> {
+                        }
+
+                        HttpURLConnection.HTTP_BAD_REQUEST -> Toast.makeText(
+                            activity,
+                            getString(R.string.login_bad_request),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        HttpURLConnection.HTTP_UNAUTHORIZED -> Toast.makeText(
+                            activity,
+                            getString(R.string.login_unauthorized),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        else -> Toast.makeText(
+                            activity,
+                            getString(R.string.request_error),
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<Product>, t: Throwable) {
+
+                    Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                }
+            }
+        )
     }
     private fun getTasks(preferencesStorage: PreferencesStorage) {
         val id = arguments?.getString("id")

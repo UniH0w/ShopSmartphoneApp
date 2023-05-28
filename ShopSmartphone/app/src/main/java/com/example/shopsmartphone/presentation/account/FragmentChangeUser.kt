@@ -45,7 +45,7 @@ class FragmentChangeUser : BaseFragment() {
         val lastNameInputLayout = binding.inputLayoutChangeFamily
         val phoneNumberInputLayout = binding.inputLayoutChangeNumberPhone
         val validate = Validator(context = requireContext())
-        val preferencesStorage = PreferencesStorage(context = requireContext())
+        val preferencesStorage = PreferencesStorage(requireContext())
 
         firsNameInputLayout.error = validate.validateFirstName(binding.editTextChangeName)
         lastNameInputLayout.error = validate.validateLastName(binding.editTextChangeFamily)

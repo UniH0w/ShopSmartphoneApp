@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.product.Product
 import com.example.shopsmartphone.databinding.FragmentCardViewItemBinding
 
+
 class FragmentAppleAdapter: RecyclerView.Adapter<AppleViewHolder>() {
     val items = mutableListOf<Product>()
     var itemClick: (Int) -> Unit = {
@@ -29,6 +30,8 @@ class FragmentAppleAdapter: RecyclerView.Adapter<AppleViewHolder>() {
     override fun onBindViewHolder(holder: AppleViewHolder, position: Int) {
         holder.bind(items[position], itemClick)
     }
+
+
 
     @SuppressLint("NotifyDataSetChanged")
     fun submitList(tasks: List<Product>) {
