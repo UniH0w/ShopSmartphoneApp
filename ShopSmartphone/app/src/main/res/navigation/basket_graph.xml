@@ -17,5 +17,16 @@
         <action
             android:id="@+id/action_basketGraph_to_accountGraph"
             app:destination="@+id/account_graph"/>
+        <action
+            android:id="@+id/action_fragmentBasket2_to_fragmentOrder"
+            app:destination="@id/fragmentOrder" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentOrder"
+        android:name="com.example.shopsmartphone.presentation.basket.order.FragmentOrder"
+        android:label="FragmentOrder" >
+        <action
+            android:id="@+id/action_fragmentOrder_to_fragmentBasket2"
+            app:destination="@id/fragmentBasket2" />
     </fragment>
 </navigation>

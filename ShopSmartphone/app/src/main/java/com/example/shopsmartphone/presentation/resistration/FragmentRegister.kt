@@ -97,5 +97,4 @@ class FragmentRegister: BaseFragment() {
                 )
             }
         }
-
     }

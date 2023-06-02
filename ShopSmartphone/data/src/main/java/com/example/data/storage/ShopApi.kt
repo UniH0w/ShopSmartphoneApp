@@ -56,6 +56,10 @@ interface ShopApi {
         @Query("id") idCard: String,
         @Header("Authorization")  token: String): Call<Product>
 
+    @POST("v1/products/remove/favorite/all")
+    fun basketRemoveAll(@Header("Authorization")  token: String): Call<Product>
+
+
     @POST("v1/products/create/favorite")
     fun favoriteCreate(
         @Query("id") idFavorite: String,
@@ -69,4 +73,6 @@ interface ShopApi {
     fun favoriteRemove(
         @Query("id") idFavorite: String,
         @Header("Authorization")  token: String): Call<Product>
+
+
 }

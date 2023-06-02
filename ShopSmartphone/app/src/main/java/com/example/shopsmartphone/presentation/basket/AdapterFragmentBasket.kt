@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.domain.models.product.CartItem
 import com.example.domain.models.product.Product
 import com.example.shopsmartphone.databinding.BasketItemBinding
 
@@ -31,6 +32,16 @@ class AdapterFragmentBasket: RecyclerView.Adapter<ViewHolderBasket>() {
         items.removeAt(position)
         notifyItemRemoved(position)
     }
+
+    /*fun addItem(cartItem: CartItem, quantity: Int){
+        val existingItem = items.find { it.id == cartItem.product.id }
+        if (existingItem == null) {
+            cartItem.quantity++
+            cart.add(cartItem)
+        } else {
+            items.add(Pair(item, quantity))
+        }
+    }*/
 
     override fun getItemCount() = items.size
 

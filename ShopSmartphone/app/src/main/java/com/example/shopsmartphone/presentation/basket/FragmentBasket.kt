@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.data.preferencesManager.PreferencesStorage
 import com.example.data.storage.ApiService
 import com.example.domain.models.product.Product
@@ -31,7 +32,43 @@ class FragmentBasket: BaseFragment() {
         binding.recyclerViewProduct.adapter =adapter
         getBasket(preferencesStorage)
         binding.orderTask.setOnClickListener {
+        findNavController()
+            .navigate(R.id.action_fragmentBasket2_to_fragmentOrder)
+        ApiService.retrofit.basketRemoveAll("Bearer ${preferencesStorage.readLoginPreference()}")
+            .enqueue(
+                object : Callback<Product> {
+                    override fun onResponse(call: Call<Product>, response: Response<Product>) {
 
+                        when (response.code()) {
+                            HttpURLConnection.HTTP_OK -> {
+                            }
+
+                            HttpURLConnection.HTTP_BAD_REQUEST -> Toast.makeText(
+                                activity,
+                                "Проблемы при оформление заказа",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            HttpURLConnection.HTTP_UNAUTHORIZED -> Toast.makeText(
+                                activity,
+                                getString(R.string.login_unauthorized),
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            else -> Toast.makeText(
+                                activity,
+                                getString(R.string.request_error),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Product>, t: Throwable) {
+
+                        Toast.makeText(activity, t.message, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            )
         }
 
         adapter.itemClick = { id->
