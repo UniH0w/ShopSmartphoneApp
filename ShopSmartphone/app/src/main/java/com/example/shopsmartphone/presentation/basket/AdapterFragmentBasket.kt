@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.models.product.CartItem
 import com.example.domain.models.product.Product
 import com.example.shopsmartphone.databinding.BasketItemBinding
+import org.koin.core.component.getScopeId
 
 
 class AdapterFragmentBasket: RecyclerView.Adapter<ViewHolderBasket>() {
@@ -43,6 +44,8 @@ class AdapterFragmentBasket: RecyclerView.Adapter<ViewHolderBasket>() {
         }
     }*/
 
+
+
     override fun getItemCount() = items.size
 
     @SuppressLint("NotifyDataSetChanged")
@@ -51,4 +54,9 @@ class AdapterFragmentBasket: RecyclerView.Adapter<ViewHolderBasket>() {
         items.addAll(product)
         notifyDataSetChanged()
     }
+
+
+
+
+
 }

@@ -107,9 +107,6 @@ class FragmentFavorite: BaseFragment() {
     }
 
     private fun getFavorite(preferencesStorage: PreferencesStorage) {
-        val id = arguments?.getString("id")
-        //binding.textView19.text = id1
-        // id = id.toString()
         ApiService.retrofit.favoriteGet( "Bearer ${preferencesStorage.readLoginPreference()}").enqueue(
             object : Callback<List<Product>> {
                 override fun onResponse(
@@ -119,8 +116,12 @@ class FragmentFavorite: BaseFragment() {
                     when (response.code()) {
                         HttpURLConnection.HTTP_OK -> {
                             val list = response.body()!!
-                            adapter.submitList(list)
-
+                            if (list.isEmpty()) {
+                                binding.favoriteNull.visibility = View.VISIBLE
+                            } else {
+                                binding.favoriteNull.visibility = View.INVISIBLE
+                                adapter.submitList(list)
+                            }
                         }
                         HttpURLConnection.HTTP_BAD_REQUEST -> Toast.makeText(
                             activity,

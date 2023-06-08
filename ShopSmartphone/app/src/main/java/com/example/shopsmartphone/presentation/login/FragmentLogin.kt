@@ -82,10 +82,12 @@ class FragmentLogin: BaseFragment() {
                                 val  firstName = response.body()?.firstName
                                 val lastName = response.body()?.lastName
                                 val email = response.body()?.email
+                                val phoneNumber = response.body()?.phoneNumber
                                 preferencesStorage.writeLoginPreference(token.toString())
                                 preferencesStorage.writeFirstNamePreference(firstName.toString())
                                 preferencesStorage.writeLastNamePreference(lastName.toString())
                                 preferencesStorage.writeEmailPreference(email.toString())
+                                preferencesStorage.writePhonePreference(phoneNumber.toString())
                                 findNavController()
                                     .navigate(R.id.action_fragmentLogin_to_search_graph)
                             }

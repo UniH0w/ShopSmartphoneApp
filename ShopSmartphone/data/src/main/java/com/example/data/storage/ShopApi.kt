@@ -1,6 +1,7 @@
 package com.example.data.storage
 
 
+import com.example.domain.models.order.Order
 import com.example.domain.models.product.BasketResponse
 import com.example.domain.models.product.FavoriteResponse
 import com.example.domain.models.user.Auth
@@ -74,5 +75,7 @@ interface ShopApi {
         @Query("id") idFavorite: String,
         @Header("Authorization")  token: String): Call<Product>
 
-
+    @POST("v1/orders")
+    fun addOrder(
+        @Body Order: Order,@Header("Authorization")  token: String): Call<Order>
 }
